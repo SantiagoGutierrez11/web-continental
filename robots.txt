@@ -1,0 +1,18 @@
+# robots.txt — CEA Sur Occidente Popayán
+# https://www.ceasuroccidente.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /js/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# No rastrear manifest por separado
+Disallow: /manifest.json
+
+Sitemap: https://www.ceasuroccidente.com/sitemap.xml
