@@ -223,6 +223,70 @@ svg{overflow:hidden;vertical-align:middle;}
 .hero-stat-icon svg{width:22px;height:22px;}
 .nav-burger svg{width:22px;height:22px;}
 .btn-red svg,.btn-dark svg{width:14px;height:14px;}
+
+/* ── Botón flotante WhatsApp ── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.wa-float-bubble {
+  background: #25D366;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(37,211,102,.45);
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity .25s, transform .25s;
+  pointer-events: none;
+}
+.wa-float:hover .wa-float-bubble,
+.wa-float:focus .wa-float-bubble {
+  opacity: 1;
+  transform: translateX(0);
+}
+.wa-float-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37,211,102,.5);
+  transition: transform .2s, box-shadow .2s;
+  flex-shrink: 0;
+}
+.wa-float-btn svg { width: 30px; height: 30px; }
+.wa-float:hover .wa-float-btn,
+.wa-float:focus .wa-float-btn {
+  transform: scale(1.1);
+  box-shadow: 0 8px 26px rgba(37,211,102,.6);
+}
+/* pulso */
+.wa-float-btn::after {
+  content: '';
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(37,211,102,.35);
+  animation: wa-pulse 2s ease-out infinite;
+}
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: .7; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
 </style>
 
 <!-- ═══ NON-CRITICAL CSS ═══ -->
@@ -1168,6 +1232,24 @@ function toggleFaq(btn) {
   }
 }
 </script>
+
+
+<!-- ── Botón flotante WhatsApp ── -->
+<a
+  class="wa-float"
+  href="https://wa.me/573214600232?text=Hola%2C%20me%20interesa%20información%20sobre%20los%20cursos%20de%20conducción%20en%20Popayán"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chatear por WhatsApp"
+>
+  <span class="wa-float-bubble">¡Escríbenos ahora!</span>
+  <span class="wa-float-btn">
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.542 5.877L.057 23.143a.75.75 0 0 0 .926.926l5.266-1.485A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 0 1-4.95-1.354l-.355-.21-3.676 1.037 1.037-3.676-.21-.355A9.713 9.713 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </span>
+</a>
 
 </body>
 </html>
